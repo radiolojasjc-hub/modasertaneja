@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TESTE MÍDIA</title>
+    <title>MODÃO SERTANEJO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background: #0a0a0a; overflow: hidden; height: 100vh; }
-        :root { --cor: #00f3ff; }
+        :root { --cor: #ff8c00; }
         
         .bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.3; }
         .app { position: relative; z-index: 10; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background: transparent; }
@@ -100,8 +100,8 @@
         .splash-loading i { font-size: 2rem; color: var(--cor); }
         .splash-loading p { margin-top: 10px; font-size: 0.85rem; }
         
-        #tap-to-start { position: fixed; bottom: 30%; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #00f3ff, #00d4ff); color: #000; padding: 14px 28px; border-radius: 60px; font-weight: 900; font-size: 1.1rem; z-index: 10000; cursor: pointer; display: none; animation: btnPulse 1.5s infinite; border: none; box-shadow: 0 0 40px rgba(0,243,255,0.6); letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
-        @keyframes btnPulse { 0% { transform: translateX(-50%) scale(1); opacity: 0.9; box-shadow: 0 0 25px rgba(0,243,255,0.3); } 50% { transform: translateX(-50%) scale(1.04); opacity: 1; box-shadow: 0 0 50px rgba(0,243,255,0.8); } 100% { transform: translateX(-50%) scale(1); opacity: 0.9; box-shadow: 0 0 25px rgba(0,243,255,0.3); } }
+        #tap-to-start { position: fixed; bottom: 30%; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #ff8c00, #e67600); color: #000; padding: 14px 28px; border-radius: 60px; font-weight: 900; font-size: 1.1rem; z-index: 10000; cursor: pointer; display: none; animation: btnPulse 1.5s infinite; border: none; box-shadow: 0 0 40px rgba(255,140,0,0.6); letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+        @keyframes btnPulse { 0% { transform: translateX(-50%) scale(1); opacity: 0.9; box-shadow: 0 0 25px rgba(255,140,0,0.3); } 50% { transform: translateX(-50%) scale(1.04); opacity: 1; box-shadow: 0 0 50px rgba(255,140,0,0.8); } 100% { transform: translateX(-50%) scale(1); opacity: 0.9; box-shadow: 0 0 25px rgba(255,140,0,0.3); } }
         
         .notification { position: fixed; top: 52px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); color: var(--cor); padding: 3px 12px; border-radius: 30px; font-size: 0.55rem; z-index: 10001; opacity: 0; transition: opacity 0.3s; pointer-events: none; border-left: 3px solid var(--cor); }
         .notification.show { opacity: 1; }
@@ -111,7 +111,7 @@
         #loadingOverlay i { font-size: 3rem; color: var(--cor); animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        .fav-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: rgba(20,20,40,0.95); backdrop-filter: blur(20px); border-radius: 30px; padding: 25px; z-index: 5000; width: 90%; max-width: 380px; text-align: center; display: none; flex-direction: column; opacity: 0; transition: all 0.3s ease; border: 2px solid transparent; box-shadow: 0 0 40px rgba(0,243,255,0.2), 0 0 80px rgba(255,45,127,0.1); }
+        .fav-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: rgba(20,20,40,0.95); backdrop-filter: blur(20px); border-radius: 30px; padding: 25px; z-index: 5000; width: 90%; max-width: 380px; text-align: center; display: none; flex-direction: column; opacity: 0; transition: all 0.3s ease; border: 2px solid transparent; box-shadow: 0 0 40px rgba(255,140,0,0.2), 0 0 80px rgba(255,45,127,0.1); }
         .fav-modal.open { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); border-image: linear-gradient(135deg, var(--cor), var(--cor)) 1; }
         .fav-modal h3 { font-size: 1.2rem; margin-bottom: 15px; background: linear-gradient(135deg, var(--cor), var(--cor)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .fav-modal .close-fav { position: absolute; top: 12px; right: 16px; background: transparent; border: none; color: #888; font-size: 1.5rem; cursor: pointer; }
@@ -125,6 +125,13 @@
         .fav-empty { color: #888; padding: 30px; text-align: center; }
         .fav-modal .close-btn { background: linear-gradient(135deg, var(--cor), var(--cor)); border: none; padding: 12px; border-radius: 30px; color: #000; font-weight: bold; cursor: pointer; margin-top: 0; font-size: 0.95rem; }
         .fav-modal .close-btn:active { transform: scale(0.95); }
+        
+        .genre-selector { position: fixed; bottom: 160px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); backdrop-filter: blur(16px); border-radius: 20px; padding: 12px 16px; z-index: 45; display: none; flex-wrap: wrap; justify-content: center; gap: 6px; border: 1px solid rgba(255,140,0,0.3); max-width: 90%; }
+        .genre-selector.open { display: flex; }
+        .genre-selector .genre-option { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.55rem; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .genre-selector .genre-option:active { transform: scale(0.92); }
+        .genre-selector .genre-option.active { background: var(--cor); color: #000; border-color: var(--cor); }
+        .genre-selector .genre-option:hover { background: rgba(255,255,255,0.15); }
         
         @media (max-width: 480px) {
             .now-playing .music-title { font-size: 1.2rem; }
@@ -150,6 +157,8 @@
             #tap-to-start { padding: 10px 18px; font-size: 0.9rem; bottom: 25%; }
             .fav-modal { padding: 20px; max-width: 340px; }
             .clear-search { font-size: 0.45rem; right: 3px; }
+            .genre-selector { bottom: 140px; padding: 8px 12px; }
+            .genre-selector .genre-option { font-size: 0.45rem; padding: 3px 8px; }
         }
     </style>
 </head>
@@ -161,15 +170,15 @@
     <div id="splash">
         <div class="splash-loading">
             <i class="fas fa-circle-notch fa-spin"></i>
-            <p>Carregando TESTE MÍDIA...</p>
+            <p>Carregando MODÃO SERTANEJO...</p>
         </div>
     </div>
 
-    <div id="tap-to-start">▶ ATIVAR TESTE MÍDIA</div>
+    <div id="tap-to-start">▶ ATIVAR MODÃO</div>
 
     <div class="app" id="appContainer" style="display: none;">
         <div class="top-bar" id="topBar">
-            <div class="genre-badge" id="genreBadge">🎵 TESTE MÍDIA</div>
+            <div class="genre-badge" id="genreBadge">🎵 MODÃO SERTANEJO</div>
             <div class="top-buttons">
                 <span class="audio-status" id="audioStatus"><span class="dot"></span> Aguardando</span>
                 <div class="search-wrapper">
@@ -184,7 +193,7 @@
         </div>
 
         <div class="info-scroll" id="infoScroll">
-            <p id="scrollText">🎵 TESTE MÍDIA - TOCANDO AGORA 🎵</p>
+            <p id="scrollText">🎵 MODÃO SERTANEJO - TOCANDO AGORA 🎵</p>
         </div>
 
         <div class="now-playing" id="nowPlaying">
@@ -212,6 +221,13 @@
         <button class="close-btn" id="closeFavBtn">FECHAR</button>
     </div>
 
+    <div class="genre-selector" id="genreSelector">
+        <span class="genre-option active" data-genre="modao">🎵 Modão</span>
+        <span class="genre-option" data-genre="sertanejo">🤠 Sertanejo</span>
+        <span class="genre-option" data-genre="romantica">💕 Romântica</span>
+        <span class="genre-option" data-genre="flashback">⏪ Flashback</span>
+    </div>
+
     <div class="bottom-controls" id="bottomControls">
         <div class="progress-time"><span id="currentTime">0:00</span><span id="totalTime">0:00</span></div>
         <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
@@ -225,7 +241,7 @@
 
     <div class="fab-container" id="fabContainer">
         <div class="fab-sub" id="fabSub">
-            <button class="fab-sub-btn" id="fabVoltar"><i class="fas fa-arrow-left"></i> Voltar ao PLAY 12</button>
+            <button class="fab-sub-btn" id="fabGeneros"><i class="fas fa-guitar"></i> Gêneros</button>
             <button class="fab-sub-btn" id="fabShare"><i class="fas fa-share-alt"></i> Compartilhar</button>
         </div>
         <div class="fab-main" id="fabMain"><i class="fas fa-plus"></i></div>
@@ -235,7 +251,7 @@
         <button class="close-menu-btn" id="closeMenuBtn"><i class="fas fa-times"></i> Fechar</button>
         <button id="fullscreenMenuBtn"><i class="fas fa-expand"></i> Tela Cheia</button>
         <button id="reloadPlaylistBtn"><i class="fas fa-sync"></i> Recarregar Playlist</button>
-        <button id="voltarMenuBtn"><i class="fas fa-arrow-left"></i> Voltar ao PLAY 12</button>
+        <button id="generosMenuBtn"><i class="fas fa-guitar"></i> Gêneros</button>
     </div>
 
     <div class="notification" id="notification">Mensagem</div>
@@ -249,13 +265,43 @@
             'use strict';
 
             // ============================================================
-            // CONFIGURAÇÕES - USANDO JSON EXTERNO
+            // CONFIGURAÇÕES DOS GÊNEROS
             // ============================================================
-            const GENERO = 'TESTE MÍDIA';
-            const COR = '#00f3ff';
-            const JSON_URL = 'https://raw.githubusercontent.com/radiolojasjc-hub/testemidias/refs/heads/main/teste.json';
-            const BASE_URL = 'https://raw.githubusercontent.com/radiolojasjc-hub/testemidias/refs/heads/main/';
+            const GENEROS = {
+                modao: {
+                    nome: 'MODÃO SERTANEJO',
+                    cor: '#ff8c00',
+                    json: 'https://raw.githubusercontent.com/radiolojasjc-hub/modao/refs/heads/main/modao.json',
+                    base: 'https://raw.githubusercontent.com/radiolojasjc-hub/modao/refs/heads/main/',
+                    emoji: '🎵'
+                },
+                sertanejo: {
+                    nome: 'SERTANEJO',
+                    cor: '#ff8800',
+                    json: 'https://raw.githubusercontent.com/radiolojasjc-hub/sertanejo/refs/heads/main/sertanejo.json',
+                    base: 'https://raw.githubusercontent.com/radiolojasjc-hub/sertanejo/refs/heads/main/',
+                    emoji: '🤠'
+                },
+                romantica: {
+                    nome: 'ROMÂNTICA',
+                    cor: '#ff2d7f',
+                    json: 'https://raw.githubusercontent.com/radiolojasjc-hub/romanticatop/refs/heads/main/romantica.json',
+                    base: 'https://raw.githubusercontent.com/radiolojasjc-hub/romanticatop/refs/heads/main/',
+                    emoji: '💕'
+                },
+                flashback: {
+                    nome: 'FLASHBACK',
+                    cor: '#ffaa00',
+                    json: 'https://raw.githubusercontent.com/radiolojasjc-hub/flashbacktop/refs/heads/main/flashback.json',
+                    base: 'https://raw.githubusercontent.com/radiolojasjc-hub/flashbacktop/refs/heads/main/',
+                    emoji: '⏪'
+                }
+            };
 
+            // ============================================================
+            // ESTADO
+            // ============================================================
+            let generoAtual = 'modao';
             let musicas = [];
             let currentPlaylist = [];
             let currentIndex = 0;
@@ -271,6 +317,9 @@
             let carregandoMusica = false;
             let tentativasFalhas = 0;
 
+            // ============================================================
+            // DOM
+            // ============================================================
             const audio = document.getElementById('musicPlayer');
             const playBtn = document.getElementById('playBtn');
             const progressFill = document.getElementById('progressFill');
@@ -298,14 +347,13 @@
             const loadingOverlay = document.getElementById('loadingOverlay');
             const backgroundAudio = document.getElementById('backgroundAudio');
             const menuPopup = document.getElementById('menuPopup');
+            const genreSelector = document.getElementById('genreSelector');
 
             // ============================================================
             // FUNÇÕES AUXILIARES
             // ============================================================
             function showNotification(msg, d = 1500) {
-                if (msg.includes('❌') || msg.includes('⚠️') || msg.includes('Erro') || msg.includes('⏭️')) {
-                    return;
-                }
+                if (msg.includes('❌') || msg.includes('⚠️') || msg.includes('Erro') || msg.includes('⏭️')) return;
                 notification.textContent = msg;
                 notification.classList.add('show');
                 setTimeout(() => notification.classList.remove('show'), d);
@@ -319,6 +367,7 @@
             }
 
             function showLoading(show) { loadingOverlay.classList.toggle('active', show); }
+
             function showControls() {
                 bottomControls.classList.add('visible');
                 if (hideControlsTimeout) clearTimeout(hideControlsTimeout);
@@ -343,25 +392,22 @@
                 } catch(e) {}
             }
 
-            function voltarPlay12() {
-                window.location.href = 'https://radiolojasjc-hub.github.io/play12/';
-            }
-
             // ============================================================
-            // GERAR URLs - TENTA VÁRIAS OPÇÕES
+            // GERAR URLs
             // ============================================================
             function gerarUrlsAlternativas(musica) {
+                const config = GENEROS[generoAtual];
                 const urls = new Set();
                 const src = musica.src || '';
                 
                 if (src && src.trim()) {
                     const nomeLimpo = src.replace(/^\.\//, '').replace(/^\/+/, '');
                     if (nomeLimpo) {
-                        urls.add(BASE_URL + nomeLimpo);
+                        urls.add(config.base + nomeLimpo);
                     }
                     try {
                         const encoded = encodeURIComponent(nomeLimpo);
-                        urls.add(BASE_URL + encoded);
+                        urls.add(config.base + encoded);
                     } catch(e) {}
                 }
                 
@@ -394,16 +440,18 @@
                         exts.forEach(ext => {
                             const nomeLimpo = nome.trim().replace(/[^a-zA-Z0-9\-_]/g, '');
                             if (nomeLimpo.length > 2) {
-                                urls.add(BASE_URL + nomeLimpo + '.' + ext);
+                                urls.add(config.base + nomeLimpo + '.' + ext);
                             }
                         });
                     }
                 });
                 
+                // Fallback URLs
+                const repoName = config.base.split('/').filter(Boolean).pop() || 'modao';
                 const fallbackUrls = [
-                    `https://raw.githubusercontent.com/radiolojasjc-hub/testemidias/refs/heads/main/${src}`,
-                    `https://raw.githubusercontent.com/radiolojasjc-hub/testemidias/refs/heads/main/${src.replace(/\.[^.]+$/, '')}.mp3`,
-                    `https://raw.githubusercontent.com/radiolojasjc-hub/testemidias/refs/heads/main/${src.replace(/\.[^.]+$/, '')}.m4a`
+                    `https://raw.githubusercontent.com/radiolojasjc-hub/${repoName}/refs/heads/main/${src}`,
+                    `https://raw.githubusercontent.com/radiolojasjc-hub/${repoName}/refs/heads/main/${src.replace(/\.[^.]+$/, '')}.mp3`,
+                    `https://raw.githubusercontent.com/radiolojasjc-hub/${repoName}/refs/heads/main/${src.replace(/\.[^.]+$/, '')}.m4a`
                 ];
                 fallbackUrls.forEach(u => { if (u) urls.add(u); });
                 
@@ -419,7 +467,7 @@
                 const idx = favorites.indexOf(id);
                 if (idx > -1) { favorites.splice(idx, 1); }
                 else { favorites.push(id); }
-                localStorage.setItem('radio_favorites_teste', JSON.stringify(favorites));
+                localStorage.setItem('radio_favorites_modao', JSON.stringify(favorites));
                 updateHeartIcon(id);
                 renderFavList();
             }
@@ -461,57 +509,98 @@
 
             function openFavModal() { renderFavList(); document.getElementById('favModal').classList.add('open'); }
 
-            function entrarModoFavoritos() {
-                if (favorites.length === 0) { return; }
-                const favs = favorites.map(id => musicas.find(m => m.id === id)).filter(Boolean);
-                if (favs.length === 0) { return; }
-                currentPlaylist = shuffleArray([...favs]);
-                currentIndex = 0;
-                historicoReproducao = [];
-                ultimoId = null;
-                const m = currentPlaylist[0];
-                if (m) { updateNowPlaying(m); adicionarAoHistorico(m); }
-                genreBadge.innerHTML = `<i class="fas fa-heart" style="color:#ff2d7f;"></i> ❤️ FAVORITOS (${favorites.length})`;
-                genreBadge.className = 'genre-badge favoritos';
-                if (isBackgroundActive) setTimeout(() => playMusic(), 200);
-            }
-
             // ============================================================
-            // CARREGAR PLAYLIST DO JSON EXTERNO
+            // CARREGAR PLAYLIST
             // ============================================================
-            async function carregarPlaylist() {
+            async function carregarPlaylist(generoKey) {
+                const config = GENEROS[generoKey];
+                if (!config) return false;
+                
                 try {
                     showLoading(true);
-                    console.log('🔄 Carregando teste.json...');
-                    const response = await fetch(JSON_URL);
+                    console.log(`🔄 Carregando ${config.nome}...`);
+                    const response = await fetch(config.json);
                     if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
                     let data = await response.json();
                     
                     if (!Array.isArray(data)) {
                         if (data.musicas && Array.isArray(data.musicas)) data = data.musicas;
                         else if (data.data && Array.isArray(data.data)) data = data.data;
-                        else { 
-                            const vals = Object.values(data); 
-                            if (vals.length && Array.isArray(vals[0])) data = vals[0]; 
-                            else throw new Error('Formato inválido'); 
+                        else {
+                            const vals = Object.values(data);
+                            if (vals.length && Array.isArray(vals[0])) data = vals[0];
+                            else throw new Error('Formato inválido');
                         }
                     }
                     
                     musicas = data.filter(m => m.src && m.src.trim() && m.title && m.title.trim());
-                    musicas.forEach(m => { 
-                        m.id = m.id || `teste_${Math.random().toString(36).substr(2, 6)}`; 
-                        m.genero = GENERO; 
+                    musicas.forEach(m => {
+                        m.id = m.id || `${generoKey}_${Math.random().toString(36).substr(2, 6)}`;
+                        m.genero = config.nome;
                     });
                     
-                    console.log(`✅ TESTE MÍDIA carregou ${musicas.length} músicas do JSON externo`);
+                    console.log(`✅ ${config.nome} carregou ${musicas.length} músicas`);
                     showLoading(false);
                     return true;
                 } catch (error) {
-                    console.error('❌ Erro ao carregar JSON:', error);
+                    console.error(`❌ Erro ao carregar ${config.nome}:`, error);
                     showLoading(false);
                     showNotification(`❌ Erro: ${error.message}`, 3000);
                     return false;
                 }
+            }
+
+            // ============================================================
+            // TROCAR GÊNERO
+            // ============================================================
+            async function trocarGenero(generoKey) {
+                if (generoKey === generoAtual) return;
+                if (carregandoMusica) return;
+                
+                generoAtual = generoKey;
+                const config = GENEROS[generoKey];
+                
+                // Atualiza UI
+                document.querySelectorAll('.genre-option').forEach(el => {
+                    el.classList.toggle('active', el.dataset.genre === generoKey);
+                });
+                
+                // Atualiza cor do tema
+                document.documentElement.style.setProperty('--cor', config.cor);
+                document.querySelector('#tap-to-start').style.background = `linear-gradient(135deg, ${config.cor}, ${config.cor}cc)`;
+                document.querySelector('#tap-to-start').style.boxShadow = `0 0 40px ${config.cor}99`;
+                
+                genreBadge.innerHTML = `${config.emoji} ${config.nome}`;
+                genreBadge.style.borderLeftColor = config.cor;
+                
+                // Carrega música
+                audio.pause();
+                audio.src = '';
+                audio.load();
+                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                equalizer.classList.add('paused');
+                stopTimer();
+                
+                const carregou = await carregarPlaylist(generoKey);
+                if (!carregou || musicas.length === 0) {
+                    showNotification('❌ Nenhuma música carregada', 2000);
+                    return;
+                }
+                
+                currentPlaylist = shuffleArray([...musicas]);
+                currentIndex = 0;
+                ultimoId = null;
+                tentativasFalhas = 0;
+                
+                const primeira = currentPlaylist[0];
+                if (primeira) {
+                    updateNowPlaying(primeira);
+                    adicionarAoHistorico(primeira);
+                }
+                
+                if (isBackgroundActive) setTimeout(() => playMusic(), 200);
+                showNotification(`🎵 ${config.nome} carregado!`, 1500);
             }
 
             // ============================================================
@@ -556,9 +645,10 @@
                 if (t) {
                     nowTitle.textContent = t.title;
                     nowArtist.textContent = t.artist;
-                    scrollText.innerHTML = `🎵 ${t.title} - ${t.artist} [${GENERO}] 🎵`;
+                    const config = GENEROS[generoAtual];
+                    scrollText.innerHTML = `${config.emoji} ${t.title} - ${t.artist} [${config.nome}] 🎵`;
                     updateHeartIcon(t.id);
-                    equalizer.querySelectorAll('span').forEach(el => { el.style.background = `linear-gradient(180deg, ${COR}, ${COR}88)`; });
+                    equalizer.querySelectorAll('span').forEach(el => { el.style.background = `linear-gradient(180deg, ${config.cor}, ${config.cor}88)`; });
                 }
             }
 
@@ -681,13 +771,13 @@
             let buscaTimeout = null;
 
             function buscarMusica(termo) {
-                if (!termo || termo.length < 2) { return; }
+                if (!termo || termo.length < 2) return;
                 const tl = termo.toLowerCase().trim();
                 const res = musicas.filter(m => 
                     m.title.toLowerCase().includes(tl) || 
                     m.artist.toLowerCase().includes(tl)
                 );
-                if (res.length === 0) { return; }
+                if (res.length === 0) return;
                 const primeira = res[0];
                 currentPlaylist = shuffleArray([primeira, ...res.filter(m => m.id !== primeira.id)]);
                 currentIndex = 0;
@@ -699,8 +789,9 @@
             }
 
             function togglePlay() {
-                if (!isBackgroundActive) { return; }
-                if (audio.paused) playMusic(); else audio.pause();
+                if (!isBackgroundActive) return;
+                if (audio.paused) playMusic();
+                else audio.pause();
                 showControls();
             }
 
@@ -717,13 +808,13 @@
                     stopTimer();
                     setTimeout(() => playMusic(), 200);
                 } else {
-                    const t = obterProximaMusica(); 
-                    if (t) { 
-                        ultimoId = t.id; 
-                        updateNowPlaying(t); 
-                        adicionarAoHistorico(t); 
+                    const t = obterProximaMusica();
+                    if (t) {
+                        ultimoId = t.id;
+                        updateNowPlaying(t);
+                        adicionarAoHistorico(t);
                         playMusic();
-                    } 
+                    }
                 }
                 showControls();
             }
@@ -776,10 +867,10 @@
                         progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
                         currentTimeEl.textContent = formatTime(audio.currentTime);
                         totalTimeEl.textContent = formatTime(audio.duration);
-                        if (audio.currentTime >= audio.duration - 0.5) { 
+                        if (audio.currentTime >= audio.duration - 0.5) {
                             if (!carregandoMusica) {
                                 tentativasFalhas = 0;
-                                nextTrack(); 
+                                nextTrack();
                             }
                         }
                     }
@@ -790,7 +881,7 @@
             function playSongById(id) {
                 if (carregandoMusica) return;
                 const m = musicas.find(m2 => m2.id === id);
-                if (!m) { return; }
+                if (!m) return;
                 audio.pause();
                 audio.src = '';
                 audio.load();
@@ -804,7 +895,7 @@
                 ultimoId = m.id;
                 historicoReproducao = [];
                 updateNowPlaying(m);
-                genreBadge.innerHTML = GENERO;
+                genreBadge.innerHTML = GENEROS[generoAtual].nome;
                 tentativasFalhas = 0;
                 if (isBackgroundActive) setTimeout(() => playMusic(), 200);
             }
@@ -857,7 +948,7 @@
 
             function recarregarPlaylist() {
                 showLoading(true);
-                carregarPlaylist().then(() => {
+                carregarPlaylist(generoAtual).then(() => {
                     currentPlaylist = shuffleArray([...musicas]);
                     currentIndex = 0;
                     ultimoId = null;
@@ -868,16 +959,20 @@
                 });
             }
 
+            function abrirSeletorGeneros() {
+                genreSelector.classList.toggle('open');
+            }
+
             // ============================================================
             // INICIALIZAÇÃO
             // ============================================================
             async function iniciar() {
                 try {
-                    try { const saved = localStorage.getItem('radio_favorites_teste'); if (saved) favorites = JSON.parse(saved); } catch(e) { favorites = []; }
+                    try { const saved = localStorage.getItem('radio_favorites_modao'); if (saved) favorites = JSON.parse(saved); } catch(e) { favorites = []; }
                     updateFavCount();
                     renderFavList();
 
-                    const carregou = await carregarPlaylist();
+                    const carregou = await carregarPlaylist('modao');
                     if (!carregou || musicas.length === 0) {
                         showNotification('❌ Nenhuma música carregada', 3000);
                         setTimeout(() => { location.reload(); }, 3000);
@@ -888,7 +983,7 @@
                     currentIndex = 0;
                     const primeira = currentPlaylist[0];
                     if (primeira) { updateNowPlaying(primeira); adicionarAoHistorico(primeira); }
-                    genreBadge.innerHTML = '🎵 TESTE MÍDIA';
+                    genreBadge.innerHTML = '🎵 MODÃO SERTANEJO';
 
                     setTimeout(() => {
                         splash.classList.add('hidden');
@@ -901,7 +996,7 @@
                     }, 500);
                 } catch (err) {
                     console.error('Erro ao iniciar:', err);
-                    splash.innerHTML = `<div class="splash-loading"><i class="fas fa-exclamation-triangle"></i><p>Erro: ${err.message}</p><button onclick="location.reload()" style="margin-top:10px;padding:8px 20px;border-radius:20px;border:none;background:${COR};color:#000;font-weight:bold;">Recarregar</button></div>`;
+                    splash.innerHTML = `<div class="splash-loading"><i class="fas fa-exclamation-triangle"></i><p>Erro: ${err.message}</p><button onclick="location.reload()" style="margin-top:10px;padding:8px 20px;border-radius:20px;border:none;background:#ff8c00;color:#000;font-weight:bold;">Recarregar</button></div>`;
                 }
             }
 
@@ -913,7 +1008,7 @@
                 if (!carregandoMusica) {
                     tentativasFalhas++;
                     setTimeout(() => {
-                        if (tentativasFalhas < 5) { playMusic(); } 
+                        if (tentativasFalhas < 5) { playMusic(); }
                         else { tentativasFalhas = 0; nextTrack(); }
                     }, 300);
                 }
@@ -936,13 +1031,21 @@
                 fabMain.innerHTML = fabOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-plus"></i>';
             });
 
-            document.getElementById('fabVoltar').addEventListener('click', voltarPlay12);
-            document.getElementById('voltarMenuBtn').addEventListener('click', voltarPlay12);
+            document.getElementById('fabGeneros').addEventListener('click', () => {
+                fabMain.click();
+                abrirSeletorGeneros();
+            });
+
+            document.getElementById('generosMenuBtn').addEventListener('click', () => {
+                menuPopup.classList.remove('open');
+                abrirSeletorGeneros();
+            });
+
             document.getElementById('fabShare').addEventListener('click', () => {
                 const t = currentPlaylist[currentIndex % currentPlaylist.length] || currentPlaylist[0];
-                if (!t) { return; }
-                const msg = `🎵 Estou ouvindo "${t.title}" - ${t.artist} no TESTE MÍDIA! 🎵`;
-                if (navigator.share) { navigator.share({ title: 'TESTE MÍDIA', text: msg, url: location.href }).catch(() => {}); }
+                if (!t) return;
+                const msg = `🎵 Estou ouvindo "${t.title}" - ${t.artist} no MODÃO SERTANEJO! 🎵`;
+                if (navigator.share) { navigator.share({ title: 'MODÃO SERTANEJO', text: msg, url: location.href }).catch(() => {}); }
                 else { navigator.clipboard.writeText(msg + ' ' + location.href).catch(() => {}); }
                 fabMain.click();
             });
@@ -971,16 +1074,16 @@
                 clearSearchBtn.style.display = termo ? 'block' : 'none';
                 if (buscaTimeout) clearTimeout(buscaTimeout);
                 buscaTimeout = setTimeout(() => {
-                    if (termo === '') { 
-                        genreBadge.innerHTML = '🎵 TESTE MÍDIA'; 
-                        if (isBackgroundActive) { 
-                            currentPlaylist = shuffleArray([...musicas]); 
-                            currentIndex = 0; 
-                            const p = currentPlaylist[0]; 
-                            if (p) { updateNowPlaying(p); adicionarAoHistorico(p); } 
-                            setTimeout(() => playMusic(), 200); 
-                        } 
-                        return; 
+                    if (termo === '') {
+                        genreBadge.innerHTML = GENEROS[generoAtual].nome;
+                        if (isBackgroundActive) {
+                            currentPlaylist = shuffleArray([...musicas]);
+                            currentIndex = 0;
+                            const p = currentPlaylist[0];
+                            if (p) { updateNowPlaying(p); adicionarAoHistorico(p); }
+                            setTimeout(() => playMusic(), 200);
+                        }
+                        return;
                     }
                     buscarMusica(termo);
                 }, 400);
@@ -998,6 +1101,9 @@
 
             document.addEventListener('click', (e) => {
                 if (menuPopup.classList.contains('open') && !menuPopup.contains(e.target) && e.target !== menuButton) menuPopup.classList.remove('open');
+                if (genreSelector.classList.contains('open') && !genreSelector.contains(e.target) && e.target !== document.getElementById('fabGeneros')) {
+                    genreSelector.classList.remove('open');
+                }
                 showControls();
             });
 
@@ -1019,6 +1125,15 @@
             });
 
             document.getElementById('favModal').addEventListener('click', (e) => { if (e.target === document.getElementById('favModal')) document.getElementById('favModal').classList.remove('open'); });
+
+            // Eventos dos botões de gênero
+            document.querySelectorAll('.genre-option').forEach(el => {
+                el.addEventListener('click', () => {
+                    const genero = el.dataset.genre;
+                    trocarGenero(genero);
+                    genreSelector.classList.remove('open');
+                });
+            });
 
             let lastTap = 0;
             document.getElementById('nowPlaying').addEventListener('click', (e) => {
